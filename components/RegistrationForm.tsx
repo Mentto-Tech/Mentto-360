@@ -79,7 +79,7 @@ export default function RegistrationForm() {
             <div className="container mx-auto max-w-md">
                 <div className="bg-surface-light p-8 rounded-2xl shadow-lg border border-gray-100">
                     <h3 className="text-2xl font-bold text-center text-text-light mb-8">
-                        Garanta sua Vaga
+                        Faça sua pré inscrição abaixo
                     </h3>
 
                     <form onSubmit={handleSubmit} className="grid gap-4 grid-cols-1 sm:grid-cols-2">
@@ -216,7 +216,7 @@ export default function RegistrationForm() {
                                 : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                                 }`}
                         >
-                            {isLoading ? 'Enviando...' : 'Garantir minha vaga'}
+                            {isLoading ? 'Enviando...' : 'Enviar minha pré inscrição'}
                         </button>
                     </form>
                 </div>

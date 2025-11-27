@@ -9,7 +9,7 @@ export default function Header() {
                 </Link>
                 <Link
                     className="bg-primary text-white font-semibold py-2 px-6 rounded-lg hover:opacity-90 transition-opacity"
-                    href="#"
+                    href="https://wa.me/5514998750740"
                 >
                     Contato
                 </Link>

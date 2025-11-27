@@ -13,7 +13,7 @@ export default function Hero() {
                     className="mt-10 inline-block bg-primary text-white font-bold py-4 px-10 rounded-lg text-lg hover:opacity-90 transition-opacity"
                     href="#inscricao"
                 >
-                    Garantir minha vaga
+                    Fazer minha pré inscrição
                 </a>
             </div>
         </section>
