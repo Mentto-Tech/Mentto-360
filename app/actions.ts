@@ -4,14 +4,16 @@ export async function registerSubscriber(prevState: any, formData: FormData) {
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const company = formData.get("company") as string;
-    const coupon = formData.get("coupon") as string;
+    const position = formData.get("position") as string;
+    const phone = formData.get("phone") as string;
+    const coupon = (formData.get("coupon") as string) || "";
 
     if (!email || !name || !company) {
         return { success: false, message: "Nome, e-mail e empresa são obrigatórios." };
     }
 
     // Validate coupon server-side
-    if (coupon?.toLowerCase().trim() !== 'mentto360') {
+    if (coupon.trim().toLowerCase() !== 'plan360') {
         return { success: false, message: "Cupom inválido." };
     }
 
@@ -37,6 +39,8 @@ export async function registerSubscriber(prevState: any, formData: FormData) {
                 fields: {
                     name: name,
                     company: company,
+                    position: position,
+                    phone: phone,
                 },
                 groups: process.env.MAILERLITE_GROUP_ID ? [process.env.MAILERLITE_GROUP_ID] : [],
             }),

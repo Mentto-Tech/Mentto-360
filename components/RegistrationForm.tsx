@@ -18,7 +18,7 @@ export default function RegistrationForm() {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            if (coupon.trim().toLowerCase() === 'mentto360') {
+            if (coupon.trim().toLowerCase() === 'plan360') {
                 setPrice(0);
             } else {
                 setPrice(10000);
