@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Header() {
     return (
-        <header className="bg-[#103c54] dark:bg-[#111827]">
+        <header className="bg-[#103c54]">
             <div className="container mx-auto px-6 py-4 flex justify-between items-center">
                 <Link href="/">
                     <h1 className="text-3xl font-bold text-white cursor-pointer">Impacto 360</h1>

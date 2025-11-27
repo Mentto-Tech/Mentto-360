@@ -8,13 +8,10 @@ export async function registerSubscriber(prevState: any, formData: FormData) {
     const phone = formData.get("phone") as string;
     const coupon = (formData.get("coupon") as string) || "";
 
-    if (!email || !name || !company) {
-        return { success: false, message: "Nome, e-mail e empresa são obrigatórios." };
-    }
+    const finalValue = formData.get("final_value") as string;
 
-    // Validate coupon server-side
-    if (coupon.trim().toLowerCase() !== 'plan360') {
-        return { success: false, message: "Cupom inválido." };
+    if (!email || !name || !company || !position || !phone) {
+        return { success: false, message: "Todos os campos (exceto cupom) são obrigatórios." };
     }
 
     const apiKey = process.env.MAILERLITE_API_KEY;
@@ -28,27 +25,35 @@ export async function registerSubscriber(prevState: any, formData: FormData) {
     }
 
     try {
+        const payload = {
+            email: email,
+            fields: {
+                name: name,
+                company: company,
+                cargo: position,
+                phone: phone,
+                voucher: coupon,
+                message: finalValue,
+            },
+            groups: process.env.MAILERLITE_GROUP_ID ? [process.env.MAILERLITE_GROUP_ID] : [],
+        };
+
+        console.log("Sending payload to MailerLite:", JSON.stringify(payload, null, 2));
+
         const response = await fetch("https://connect.mailerlite.com/api/subscribers", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${apiKey}`,
             },
-            body: JSON.stringify({
-                email: email,
-                fields: {
-                    name: name,
-                    company: company,
-                    position: position,
-                    phone: phone,
-                },
-                groups: process.env.MAILERLITE_GROUP_ID ? [process.env.MAILERLITE_GROUP_ID] : [],
-            }),
+            body: JSON.stringify(payload),
         });
 
+        const data = await response.json();
+        console.log("MailerLite response:", JSON.stringify(data, null, 2));
+
         if (!response.ok) {
-            const errorData = await response.json();
-            console.error("MailerLite API Error:", errorData);
+            console.error("MailerLite API Error:", data);
 
             if (response.status === 422) {
                 return { success: false, message: "E-mail inválido ou já cadastrado." };

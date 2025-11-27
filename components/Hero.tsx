@@ -1,6 +1,6 @@
 export default function Hero() {
     return (
-        <section className="bg-[#103c54] dark:bg-[#111827] text-white text-center py-20 px-6">
+        <section className="bg-[#103c54] text-white text-center py-20 px-6">
             <div className="container mx-auto">
                 <h2 className="text-4xl md:text-6xl font-bold leading-tight max-w-4xl mx-auto">
                     Estratégia e Inovação que Geram Resultados
