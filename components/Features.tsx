@@ -10,7 +10,7 @@ export default function Features() {
                     </div>
                     <div className="bg-background-light p-8 rounded-2xl shadow-lg text-left transform hover:-translate-y-2 transition-transform duration-300">
                         <h4 className="text-xl font-bold text-[#103c54] mb-4">Querem transformar ideias em ações</h4>
-                        <p className="text-subtext-light">Ideal para quem quer organizer e priorizar iniciativas de forma eficiente.</p>
+                        <p className="text-subtext-light">Ideal para quem quer organizar e priorizar iniciativas de forma eficiente.</p>
                     </div>
                     <div className="bg-background-light p-8 rounded-2xl shadow-lg text-left transform hover:-translate-y-2 transition-transform duration-300">
                         <h4 className="text-xl font-bold text-[#103c54] mb-4">Valorizam decisões baseadas em dados</h4>
